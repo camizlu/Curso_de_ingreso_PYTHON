@@ -6,12 +6,12 @@ import customtkinter
 import random
 
 '''
-nombre:
-apellido:
+nombre: Camila 
+apellido: Lucero 
 ---
 Ejercicio: if_09
 ---
-Al presionar el botón  'Calcular', se deberá mostrar (utilizando el Dialog alert) un número
+Al presionar el botón  'Mostrar', se deberá mostrar (utilizando el Dialog alert) un número
 aleatorio entre el 1 y el 10 inclusive
 '''
 
@@ -27,9 +27,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
+        numero_aleatorio = random.randint(1, 10)
+        alert(title="",message=f"{numero_aleatorio}")
 
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

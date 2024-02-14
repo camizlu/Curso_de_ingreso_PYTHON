@@ -5,14 +5,14 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Camila
+apellido: Lucero
 ---
 TP: IF_Iluminacion
 ---
 Enunciado:
 Todas las lámparas están  al mismo precio de $800 pesos final.
-		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
+		A.	Si compra 6 o más lamparitas bajo consumo tiene un descuento del 50%. 
 		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
 		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
 		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
@@ -43,9 +43,49 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca = self.combobox_marca.get()
+        cantidad = int (self.combobox_cantidad.get())
+        precio = 800
+        descuento = 0
         
-    
+        if cantidad >= 6: 
+            descuento = precio * 0.50
+        else:   
+            if cantidad == 5: 
+                if marca == "ArgentinaLuz": 
+                    descuento = precio * 0.40
+                else: 
+                    descuento = precio * 0.30 
+            else: 
+                if cantidad == 4: 
+                    if marca == "ArgentinaLuz" or marca == "FelipeLamparas": 
+                        descuento = precio * 0.25
+                    else: 
+                        descuento = precio * 0.20
+                else: 
+                    if cantidad == 3: 
+                        if marca == "ArgentinaLuz": 
+                            descuento = precio * 0.15
+                        else:
+                            if marca == "FelipeLamparas":
+                                descuento = precio *  0.10
+                            else: 
+                                descuento = precio * 0.05
+                                
+                            
+        importe_final =  precio - descuento   
+        importe_final =  round(importe_final,2)    
+        
+        if importe_final > 4000:   
+            descuento_adicional = importe_final * 0.05
+            importe_final = importe_final - descuento_adicional
+            importe_final = round(importe_final,2)
+            alert (title="",message=f"El importe final es: {importe_final}")
+        else: 
+            alert (title="",message=f"El importe final es: {importe_final}")
+            
+          
+                
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

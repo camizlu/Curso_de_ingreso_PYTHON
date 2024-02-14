@@ -33,18 +33,20 @@ class App(customtkinter.CTk):
         self.btn_mostrar = customtkinter.CTkButton(master=self, text="Calcular", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
-
     def btn_mostrar_on_click(self):
         edad=int(self.txt_edad.get())
         
-        if edad > 17 : 
-            alert("", "ES MAYOR")
-        else: 
-            if #UN IF DENTRO DE OTRO
-
-
-        
-        
+        if edad > 17:
+            alert(title="", message="ES MAYOR")
+        else:
+            if edad >= 13 and edad <= 17:
+                alert(title="", message="ES ADOLESCENTE")
+            else:
+                if edad >= 10 and edad < 13:
+                    alert(title="", message="ES PREADOLESCENTE")
+                else:
+                    alert(title="", message="ES NIÑO/A")
+            
     
 if __name__ == "__main__":
     app = App()

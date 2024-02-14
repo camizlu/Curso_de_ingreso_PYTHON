@@ -40,10 +40,8 @@ class App(customtkinter.CTk):
             alert(title="", message="MAYOR")  
         else: 
             alert (title="", message="MENOR")
+            
 
-        
-        
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

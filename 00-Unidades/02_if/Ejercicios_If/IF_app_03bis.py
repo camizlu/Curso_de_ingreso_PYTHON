@@ -29,16 +29,16 @@ class App(customtkinter.CTk):
         self.txt_altura.grid(row=0, column=1)
 
         self.btn_mostrar = customtkinter.CTkButton(
-            master=self, text="Mostrar", command=self.btn_mostrar_on_click)
+        master=self, text="Mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
         altura= float(self.txt_altura.get())
         
         if altura > 1.80: 
-            alert(title="", message="Es pivot")
+            alert(title="Información Basquetbolista", message="Es pivot")
         else: 
-            alert(title="", message="No es pivot")
+            alert(title="Información Basquetbolista", message="No es pivot")
 
 
 if __name__ == "__main__":
