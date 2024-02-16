@@ -40,17 +40,19 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         altura=float(self.txt_altura.get())
-        
+
         if altura < 160:
-            alert(title="", message="El jugador es base")
+            message="El jugador es base"
         else: 
-            if altura >=160 and altura <=179: 
-                alert (title="", message="El jugador es escolta")
+            if altura <=179: 
+                message="El jugador es escolta"
             else: 
-                if altura >=180 and altura <=199: 
-                    alert (title="", message="El jugador es alero")
+                if altura  <= 199: 
+                    message="El jugador es alero"
                 else:
-                    alert (title="", message="El jugador es Ala-Pívot o Pívot")
+                    message="El jugador es Ala-Pívot o Pívot"
+                    
+        alert("Posición",message)
 
         
       

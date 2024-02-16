@@ -46,13 +46,15 @@ class App(customtkinter.CTk):
         edad = int(self.txt_edad.get())
         
         if edad >= 18: 
-            alert (title="", message="Esta habilitado a votar") 
+            message="Esta habilitado a votar"
         else: 
             if tipo_nacionalidad == "NATIVO" and edad >=16:
-                alert(title="", message="Esta hablitado a votar")
+                message="Esta hablitado a votar"
             else: 
-                alert (title="", message="No esta habilitado a votar")
-            
+                message="No esta habilitado a votar"
+                
+        alert("Votación",message = message)
+                
 
 if __name__ == "__main__":
     app = App()
