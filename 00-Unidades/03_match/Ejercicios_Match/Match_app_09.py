@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Camila 
+apellido: Lucero
 ---
 Ejercicio: Match_09
 ---
@@ -57,7 +57,54 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        estadia_base = 15000
+        destino = self.combobox_destino.get()
+        estacion = self.combobox_estaciones.get()
+        
+        match(estacion): 
+            
+            case 'Invierno':
+                match(destino):
+                    case'Bariloche':
+                        aumento = estadia_base * 0.20
+                        precio_final = estadia_base + aumento
+                        message = f"El precio final es {precio_final}"
+                    case 'Cataratas'|'Cordoba':
+                        descuento = estadia_base * 0.10
+                        precio_final = estadia_base - descuento
+                        message = f"El precio final es {precio_final}"
+                    case 'Mar del plata':
+                        descuento = estadia_base * 0.20
+                        precio_final =estadia_base - descuento
+                        message = f"El precio final es {precio_final}"
+                        
+            case 'Verano':
+                match(destino): 
+                    case'Bariloche':
+                        descuento = estadia_base * 0.20
+                        precio_final = estadia_base - descuento
+                        message = f"El precio final es {precio_final}"
+                    case'Cataratas'|'Cordoba':
+                        aumento = estadia_base * 0.10
+                        precio_final = estadia_base + aumento
+                        message = f"El precio final es {precio_final}"
+
+                    case 'Mar del plata':
+                        aumento = estadia_base * 0.20
+                        precio_final = estadia_base + aumento
+                        message = f"El precio final es {precio_final}"
+
+            case 'Otoño'|'Primavera': 
+                match(destino): 
+                    case'Bariloche'|'Cataratas'|'Mar del plata':
+                        aumento = estadia_base * 0.10
+                        precio_final = estadia_base + aumento
+                        message = f"El precio final es {precio_final}"
+                    case'Cordoba': 
+                        message = f"El precio final es {estadia_base}"
+                        
+        alert('Tarifa',message)
+        
             
     
 if __name__ == "__main__":

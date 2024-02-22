@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Camila 
+apellido: Lucero
 ---
 TP: Iluminación
 ---
@@ -43,9 +43,47 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        precio_inicial = 800
+        marca = self.combobox_marca.get()
+        cantidad = int(self.combobox_cantidad.get())
+        descuento = 0
         
-    
+        match(cantidad):
+            case 6 | 7 | 8 | 9 | 10 | 11 | 12:
+                descuento = 0.50
+            case 5:
+                match(marca):
+                    case "ArgentinaLuz": 
+                        descuento = 0.40
+                    case _:
+                        descuento = 0.30
+            case 4:
+                match (marca): 
+                    case "ArgentinaLuz" | "FelipeLamparas": 
+                        descuento = 0.25
+                    case _:
+                        descuento = 0.20         
+            case 3:
+                match(marca): 
+                    case "ArgentinaLuz":
+                        descuento = 0.15 
+                    case "FelipeLamparas":
+                        descuento = 0.10
+                    case _: 
+                        descuento = 0.05
+            case 2 | 1: 
+                descuento = 0
+        
+        
+        importe = (precio_inicial * cantidad) 
+        importe_final = importe - (importe * descuento)
+           
+        if importe_final > 4000: 
+            importe_final = importe_final * 0.95
+            
+        alert(title="Precios",message= f"Su importe final es: ${importe_final}")
+                
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

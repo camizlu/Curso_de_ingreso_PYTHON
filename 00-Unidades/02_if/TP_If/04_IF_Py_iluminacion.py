@@ -49,42 +49,38 @@ class App(customtkinter.CTk):
         descuento = 0
         
         if cantidad >= 6: 
-            descuento = precio * 0.50
+            descuento = 0.50
         else:   
             if cantidad == 5: 
                 if marca == "ArgentinaLuz": 
-                    descuento = precio * 0.40
+                    descuento = 0.40
                 else: 
-                    descuento = precio * 0.30 
+                    descuento = 0.30 
             else: 
                 if cantidad == 4: 
                     if marca == "ArgentinaLuz" or marca == "FelipeLamparas": 
-                        descuento = precio * 0.25
+                        descuento = 0.25
                     else: 
-                        descuento = precio * 0.20
+                        descuento = 0.20
                 else: 
                     if cantidad == 3: 
                         if marca == "ArgentinaLuz": 
-                            descuento = precio * 0.15
+                            descuento = 0.15
                         else:
                             if marca == "FelipeLamparas":
-                                descuento = precio *  0.10
+                                descuento = 0.10
                             else: 
-                                descuento = precio * 0.05
+                                descuento = 0.05
                                 
                             
-        importe_final =  precio - descuento   
-        importe_final =  round(importe_final,2)    
+        importe = (precio * cantidad) 
+        importe_final = importe - (importe * descuento)   
         
-        if importe_final > 4000:   
-            descuento_adicional = importe_final * 0.05
-            importe_final = importe_final - descuento_adicional
-            importe_final = round(importe_final,2)
-            alert (title="",message=f"El importe final es: {importe_final}")
-        else: 
-            alert (title="",message=f"El importe final es: {importe_final}")
-            
-          
+        if importe_final > 4000: 
+            importe_final = importe_final * 0.95 
+        
+        alert (title="Precio", message= f"Su importe final es: ${importe_final}")
+                   
                 
 if __name__ == "__main__":
     app = App()
