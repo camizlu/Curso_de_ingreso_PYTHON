@@ -3,6 +3,7 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+import math
 
 '''
 nombre: Camila 
@@ -53,9 +54,10 @@ class App(customtkinter.CTk):
         self.btn_tiempo_llegada.grid(row=4, pady=10, padx=30, columnspan=2, sticky="nsew")
     
     def btn_cantidad_camiones_on_click(self):
-        toneladas=float(self.txt_toneladas.get()) 
+        toneladas= float(self.txt_toneladas.get()) 
         kilogramos = (toneladas * 1000) 
-        camiones = int (kilogramos / 3500) 
+        camiones = kilogramos / 3500
+        camiones = int (math.ceil(camiones))
         alert(title="Logística", message=f"Se necesitarán {camiones} camiones.")
         
         # cada uno de ellos puede transportar por viaje 3500kg

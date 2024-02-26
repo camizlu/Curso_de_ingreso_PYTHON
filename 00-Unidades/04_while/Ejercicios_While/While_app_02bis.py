@@ -29,21 +29,19 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        numero = 0 
-        suma = 0 
-        suma_impares = 0 
         
-        while(numero < 10): 
-            numero+1
-            if numero %2 == 0:
-                suma += numero
-            else: 
-                suma_impares  += numero
-                alert("Titulo",str(suma_impares))
-        
-        alert("UTN","Sali del bucle")
-    
-    
+        numero = 0
+        suma_pares = 0
+                
+        while (numero < 10): 
+            numero = numero + 1
+            if numero % 2 == 0: 
+                suma_pares = suma_pares + numero
+                message = f"La suma de los numeros pares es {suma_pares}"
+                
+        alert("Pares",message)
+            
+                    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

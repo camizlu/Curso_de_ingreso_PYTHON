@@ -29,12 +29,12 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
+        numero = 0 
         
-        numero = 0
         while (numero <10): 
-            numero += 1
-            alert("Titulo",str(numero))    
-    
+            numero +=1
+            alert ("Titulo",str(numero))
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

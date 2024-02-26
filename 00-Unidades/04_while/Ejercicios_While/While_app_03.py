@@ -24,19 +24,19 @@ class App(customtkinter.CTk):
 
         self.title("UTN FRA")
         
-        self.btn_pedir_clave = customtkinter.CTkButton(master=self, text="Ingresar", command=self.btn_pedir_clave_on_click)
+        self.btn_pedir_clave = customtkinter.CTkButton(master=self, text="Pedir clave", command=self.btn_pedir_clave_on_click)
         self.btn_pedir_clave.grid(row=2, pady=20, columnspan=2, sticky="nsew")
         
     
     def btn_pedir_clave_on_click(self):
         
-        clave = "utn750"
-        respuesta = prompt(title="Clave", prompt="Ingrese la contraseña")
+        contrasenia = prompt ("Datos","Ingrese una contraseña")
+         
+        while (contrasenia != "utn750"): 
+            contrasenia = prompt ("Error","Ingrese la contraseña nuevamente")
         
-        while (respuesta != clave):
-            respuesta = prompt (title="Error", prompt="Reingrese la contraseña")    
-    
-        alert("","Contraseña exitosa")
+        alert("UTN","Contraseña correcta")
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

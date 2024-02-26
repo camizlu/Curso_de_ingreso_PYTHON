@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Camila 
+apellido: Lucero
 ---
 TP: While_validaciones_rising_btl
 ---
@@ -55,7 +55,26 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        
+        apellido = str (prompt ("DATOS","Ingrese su apellido"))
+        
+        edad = int (prompt("DATOS","Ingrese su edad"))
+        while (edad < 18 or edad > 90): 
+            edad = int (prompt("Error","Ingrese una edad valida"))
+          
+        estado_civil = prompt("DATOS","Ingrese su estado civil \n [Soltero/a, Casado/a, Divorciado/a, Viudo/a]")
+        while estado_civil not in ["Soltero","Soltera", "Casado","Casada","Divorciado","Divorciada", "Viudo", "Viuda"]:
+            estado_civil = prompt("Error", "Ingrese su estado civil válido\n [Soltero/a, Casado/a, Divorciado/a, Viudo/a]")
+            
+        legajo = str(prompt("DATOS","Ingrese su numero de legajo [4 DIGITOS]"))
+        while (len (legajo) != 4): 
+            legajo = str(prompt("Error","Ingrese su numero de legajo valido [4 DIGITOS]"))
+        
+        self.txt_apellido.insert(0,apellido)
+        self.txt_edad.insert(0,edad)
+        self.combobox_tipo.set(estado_civil)
+        self.txt_legajo.insert(0,legajo)
+        
 
 
 if __name__ == "__main__":
