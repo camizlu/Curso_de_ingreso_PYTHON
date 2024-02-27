@@ -66,9 +66,9 @@ class App(customtkinter.CTk):
         while estado_civil not in ["Soltero","Soltera", "Casado","Casada","Divorciado","Divorciada", "Viudo", "Viuda"]:
             estado_civil = prompt("Error", "Ingrese su estado civil válido\n [Soltero/a, Casado/a, Divorciado/a, Viudo/a]")
             
-        legajo = str(prompt("DATOS","Ingrese su numero de legajo [4 DIGITOS]"))
-        while (len (legajo) != 4): 
-            legajo = str(prompt("Error","Ingrese su numero de legajo valido [4 DIGITOS]"))
+        legajo = int(prompt("DATOS","Ingrese su numero de legajo [4 DIGITOS]"))
+        while not (legajo >= 1000 and legajo <= 9999): 
+            legajo = int(prompt("Error","Ingrese su numero de legajo valido [4 DIGITOS]"))
         
         self.txt_apellido.insert(0,apellido)
         self.txt_edad.insert(0,edad)

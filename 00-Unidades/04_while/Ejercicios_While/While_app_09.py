@@ -41,21 +41,28 @@ class App(customtkinter.CTk):
 
     def btn_comenzar_ingreso_on_click(self):
         
-        maximo = True
-        minimo = True
+        maximo_set = False
+        minimo_set = False
+        
+        maximo_valor = None
+        minimo_valor = None 
+        
         
         while(True): 
             
             numero = prompt ("UTN","Ingrese un numero")
             if numero == None: 
                 break 
-            if maximo == None or int (maximo) < int (numero): 
-                maximo = numero
-            if minimo == None or int(minimo) > int (numero): 
-                minimo = numero
-        
-        self.txt_minimo.insert(0,int(minimo))
-        self.txt_maximo.insert(0,int(maximo))
+            if not maximo_set or int(numero) > maximo_valor : 
+                maximo_set = True 
+                maximo_valor = int(numero)
+            if not minimo_set or int (numero) < minimo_valor: 
+                minimo_set = True 
+                minimo_valor = int(numero)
+            
+    
+        self.txt_minimo.insert(0,int(minimo_valor))
+        self.txt_maximo.insert(0,int(maximo_valor))
 
 if __name__ == "__main__":
     app = App()

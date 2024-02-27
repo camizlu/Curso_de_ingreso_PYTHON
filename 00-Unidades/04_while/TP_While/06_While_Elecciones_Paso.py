@@ -38,13 +38,19 @@ class App(customtkinter.CTk):
         
         suma_edades = 0 
         total_votos = 0
-        candidato_mas_votos = ""
-        candidato_menos_votos = ""
         edad_c_menos_votos = 0 
         total_candidatos = 0 
         
-        mas_votos = 0
-        menor_votos = float('inf')
+        candidato_mas_votos = ""
+        candidato_menos_votos = ""
+        
+        mas_votos_valor = None
+        menor_votos_valor = None
+        
+        mas_votos_set = False
+        menor_votos_set = False
+        
+        edad_c_menos_votos = 0
 
        
         while (True): 
@@ -59,15 +65,18 @@ class App(customtkinter.CTk):
                 cantidad_votos = int (prompt("Error","Ingrese una cantidad valida"))
                 
             #analisis de datos
-                
-            if cantidad_votos > mas_votos:
-                mas_votos = cantidad_votos  
+               
+            if not mas_votos_set or int (cantidad_votos) > mas_votos_valor: 
+                mas_votos_set = True
+                mas_votos_valor = int (cantidad_votos)
                 candidato_mas_votos = nombre
                 
-            if cantidad_votos < menor_votos: 
-                menor_votos = cantidad_votos
+            if not menor_votos_set or int(cantidad_votos) < menor_votos_valor: 
+                menor_votos_set = True 
+                menor_votos_valor = int(cantidad_votos)
                 candidato_menos_votos = nombre
                 edad_c_menos_votos = edad
+               
                    
             suma_edades += edad 
             total_votos += cantidad_votos

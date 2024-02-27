@@ -27,8 +27,19 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-       pass
-    
+        numero = int (prompt("UTN","Ingrese un numero")) 
+        contador_pares = 0
+        numeros = ""
+       
+        for i in range (1,numero+1): #de 1 al numero ingresado 
+           if i % 2 == 0: 
+               numeros += f"{i} "
+               contador_pares +=1
+               
+        alert("Pares", f"Los numeros pares encontrados son: {contador_pares}\n"
+                        f"Estos son: {numeros}")           
+       
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
