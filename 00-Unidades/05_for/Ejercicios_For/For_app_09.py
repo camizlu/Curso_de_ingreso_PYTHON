@@ -3,10 +3,11 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+import random
 
 '''
-nombre:
-apellido:
+nombre: Camila 
+apellido: Lucero
 ---
 Ejercicio: for_09
 ---
@@ -37,8 +38,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
+        
         pass
-                
 
     
 if __name__ == "__main__":

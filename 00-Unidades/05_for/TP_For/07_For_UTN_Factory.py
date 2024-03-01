@@ -47,6 +47,7 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
         
+        CANTIDAD_ITERACIONES = 10
         contador_puntoA = 0 
         contador_fem = 0 
         contador_mas = 0 
@@ -56,21 +57,19 @@ class App(customtkinter.CTk):
         edad_nb = 0
         contador_JS = 0 
         contador_PY = 0 
-        contador_ASP = 0  
-        cantidad_iteraciones = 10
-        
+        contador_ASP = 0          
         
         menor_edad_junior = None
         menor_edad_junior_nombre = None
         
         
         
-        for i in range (cantidad_iteraciones): 
+        for i in range (CANTIDAD_ITERACIONES): 
             nombre = prompt("UTN Software","Ingrese su nombre")
             while nombre == None or nombre == "": 
                 nombre = prompt("Error","Ingrese un nombre valido")
             edad = prompt("UTN Software","Ingrese su edad")
-            while edad == None or int(edad < 18): 
+            while edad == None or int (edad) < 18: 
                 edad = prompt("Error","Ingrese una edad valida [+18]")
             genero = prompt("UTN Software","Ingrese su género [F/M/NB]").upper()
             while  (genero == None or (str(genero) != "F" and str(genero) != "M" and str(genero) != "NB")): 
@@ -120,9 +119,9 @@ class App(customtkinter.CTk):
             mas_postulantes = "ASP.NET"   
             
         #E
-        porcentaje_fem = (contador_fem / cantidad_iteraciones) * 100
-        porcentaje_mas = (contador_mas/cantidad_iteraciones) * 100
-        porcentaje_nb = (contador_nb/cantidad_iteraciones) * 100
+        porcentaje_fem = (contador_fem / CANTIDAD_ITERACIONES) * 100
+        porcentaje_mas = (contador_mas/CANTIDAD_ITERACIONES) * 100
+        porcentaje_nb = (contador_nb/CANTIDAD_ITERACIONES) * 100
             
         if contador_fem > 0: 
             promedio_fem = edad_fem / contador_fem 
@@ -137,7 +136,12 @@ class App(customtkinter.CTk):
         print(f"E)El porcentaje de postulantes femeninas es {porcentaje_fem}, el de masculinos {porcentaje_mas} y el de no binarios es {porcentaje_nb}")
 
 
-                
+# Verificamos si hay mujeres para evitar dividir por cero
+if total_mujeres != 0:
+    promedio_edades_mujeres = suma_edades / total_mujeres
+    print("El promedio de edades femeninas es:", promedio_edades_mujeres)
+else:
+    print("No hay mujeres en el conjunto de datos.")         
             
                 
                 
